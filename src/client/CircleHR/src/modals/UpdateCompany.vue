@@ -74,6 +74,18 @@
                   v-model="phone"
                 />
               </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="flexCheckChecked"
+                  v-model="isActive"
+                  checked="true"
+                />
+                <label class="form-check-label" for="flexCheckChecked">
+                  Durum
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -99,6 +111,7 @@ export default {
       phone: null,
       hasError: false,
       selectedId: null,
+      isActive: false,
     };
   },
   mounted() {
@@ -113,6 +126,7 @@ export default {
         Description: this.description,
         Address: this.address,
         Phone: this.phone,
+        IsActive: this.isActive ? true : false,
       };
       this.$ajax
         .put("/api/management/admin/update", data)

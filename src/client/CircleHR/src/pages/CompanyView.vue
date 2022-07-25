@@ -35,7 +35,10 @@
         <tbody>
           <tr v-for="c in companies" :key="c.id">
             <td>{{ c.companyName }}</td>
-            <td>Active</td>
+            <td v-if="c.isActive"><i class="fas fa-regular fa-check"></i></td>
+            <td v-else="c.isActive">
+              <i class="fas fa-regular fa-power-off"></i>
+            </td>
             <td>
               <button @click="updateCompany(c.id)">
                 <i class="fas fa-pen ml-3" style="color: lightblue"></i>
@@ -158,5 +161,13 @@ button {
   border: none !important;
   justify-items: center;
   align-content: center;
+}
+.fa-check {
+  color: green;
+  margin-left: 10px;
+}
+.fa-power-off {
+  color: red;
+  margin-left: 10px;
 }
 </style>
